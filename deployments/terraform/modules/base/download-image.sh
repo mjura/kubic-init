@@ -25,6 +25,7 @@ IMG_REFRESH=1
 IMG_PURGE=
 UPLOAD_IMG=
 UPLOAD_POOL=
+UPLOAD_TIME=20
 
 LOCAL_VIRSH="virsh"
 REM_VIRSH="virsh"
@@ -205,12 +206,12 @@ if [ -n "$UPLOAD_IMG" ] ; then
   virsh_cmd vol-create-as "$UPLOAD_POOL" "$UPLOAD_IMG" $size --format raw || \
     abort "could not create volume $UPLOAD_IMG (provided with --upload-to-img)"
 
-  log "Uploading $IMG_LOCAL_NAME to $UPLOAD_POOL/$UPLOAD_IMG"
+  log "Uploading $IMG_LOCAL_NAME to [$UPLOAD_POOL]:$UPLOAD_IMG"
   virsh_cmd vol-upload --pool "$UPLOAD_POOL" "$UPLOAD_IMG" "$IMG_LOCAL_NAME" || \
     abort "could not upload to volume $UPLOAD_IMG (provided with --upload-to-img) from $IMG_LOCAL_NAME"
 
-  log "Giving some time to the upload"
-  sleep 20
+  log "Giving some time to the upload to finish... (will wait $UPLOAD_TIME seconds)"
+  sleep $UPLOAD_TIME
 fi
 
 log "Done!."

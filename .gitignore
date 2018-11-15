@@ -4,7 +4,7 @@ cmd/kubic-init/kubic-init
 kubic-init-latest.tar.gz
 
 # the qcow2 images
-deployments/images/*.qcow*
+deployments/terraform/images/*.qcow*
 
 # vendored deps, IDEs and other dirs
 vendor/
