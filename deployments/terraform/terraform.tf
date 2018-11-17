@@ -92,6 +92,10 @@ output "seeder" {
   value = "${module.seeder.address}"
 }
 
+output "nodes" {
+  value = "${module.nodes.addresses}"
+}
+
 output "token" {
   value = "${module.seeder.token}"
 }

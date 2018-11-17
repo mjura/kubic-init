@@ -13,6 +13,6 @@
 # published by the Open Source Initiative.
 #
 
-output "nodes" {
+output "addresses" {
   value = "${libvirt_domain.node.*.network_interface.0.addresses}"
 }
