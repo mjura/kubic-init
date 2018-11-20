@@ -8,8 +8,7 @@ go.sum
 # the qcow2 images
 deployments/images/*.qcow*
 
-# vendored deps, IDEs and other dirs
-vendor/
+# IDEs and other dirs
 .idea
 
 # terraform stuff
